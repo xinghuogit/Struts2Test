@@ -4,40 +4,46 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	
-   <!--  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
 
-    <package name="default" namespace="/" extends="struts-default">
+	<!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" 
+		/> <constant name="struts.devMode" value="true" /> <package name="default" 
+		namespace="/" extends="struts-default"> <default-action-ref name="index" 
+		/> <global-results> <result name="error">/WEB-INF/jsp/error.jsp</result> 
+		</global-results> <global-exception-mappings> <exception-mapping exception="java.lang.Exception" 
+		result="error"/> </global-exception-mappings> <action name="index"> <result 
+		type="redirectAction"> <param name="actionName">HelloWorld</param> <param 
+		name="namespace">/example</param> </result> </action> </package> <include 
+		file="example.xml"/> -->
 
-        <default-action-ref name="index" />
+	<!-- Add packages here -->
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="true" />
 
-        <global-results>
-            <result name="error">/WEB-INF/jsp/error.jsp</result>
-        </global-results>
-
-        <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception" result="error"/>
-        </global-exception-mappings>
-
-        <action name="index">
-            <result type="redirectAction">
-                <param name="actionName">HelloWorld</param>
-                <param name="namespace">/example</param>
-            </result>
-        </action>
-    </package>
-
-    <include file="example.xml"/> -->
-
-    <!-- Add packages here -->
-    
-     <package name="default" namespace="/" extends="struts-default">
-        <action name="hello">
-            <result >
+	<!-- 介绍 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="hello">
+			<result>
 				/Hello.jsp
-            </result>
-        </action>
-    </package>
+			</result>
+		</action>
+	</package>
+
+	<!-- namespace -->
+	<package name="front" extends="struts-default" namespace="/front">
+		<action name="namespace">
+			<result>
+				/namespace.jsp
+			</result>
+		</action>
+	</package>
+
+	<!-- namespace为空的时候 -->
+	<package name="main" extends="struts-default" namespace="">
+		<action name="namespace">
+			<result>
+				/namespace.jsp
+			</result>
+		</action>
+	</package>
 
 </struts>
