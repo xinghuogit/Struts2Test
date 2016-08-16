@@ -74,7 +74,7 @@
 	</package>
 	<!-- path结束 -->
 
-	<!-- ActionMethod开始 -->
+	<!-- ActionMethod开始 ActionAttrParamInput -->
 	<package name="user" extends="struts-default" namespace="/user">
 		<action name="userAdd" class="com.struts2.front.action.UserAction"
 			method="add">
@@ -88,7 +88,7 @@
 			</result>
 		</action>
 	</package>
-	<!-- ActionMethod结束 -->
+	<!-- ActionMethod结束 ActionAttrParamInput -->
 
 	<!-- 通配符开始 ActionWildcard -->
 	<package name="actions" extends="struts-default" namespace="/actions">

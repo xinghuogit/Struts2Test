@@ -45,8 +45,13 @@
 	<a href="<%=context%>/actions/Course_delete">删除课程</a>
 	<br />通配符结束ActionWildcard
 	<br>
+	<br />ActionAttrParamInput开始 使用action属性接收参数   和ActionMethod开始
+	<br>使用action属性接收参数
+	<a href="user/user!add?name=a&age=8">添加用户</a>
+	<br />ActionAttrParamInput结束使用action属性接收参数
+	<br>
+	使用Domain Model接收参数<a href="user/user!add?user.name=a&user.age=8">添加用户</a>
 
-	<p>Loading ...</p>
 
 </body>
 </html>
