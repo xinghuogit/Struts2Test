@@ -29,7 +29,7 @@
 		</action>
 	</package>
 
-	<!-- namespace -->
+	<!-- namespace开始 -->
 	<package name="front" extends="struts-default" namespace="/front">
 		<action name="namespace">
 			<result>
@@ -46,6 +46,7 @@
 			</result>
 		</action>
 	</package>
+	<!-- namespace结束 -->
 
 	<!-- action开始 -->
 	<package name="action" extends="struts-default" namespace="/">
@@ -89,5 +90,39 @@
 	</package>
 	<!-- ActionMethod结束 -->
 
+	<!-- 通配符开始 ActionWildcard -->
+	<package name="actions" extends="struts-default" namespace="/actions">
+		<action name="Student*" class="com.struts2.front.action.StudentAction"
+			method="{1}">
+			<result>
+				/student{1}_success.jsp
+			</result>
+		</action>
+		<action name="*_*" class="com.struts2.front.action.{1}Action">
+			<result>
+				/{1}_{2}_success.jsp
+			</result>
+		</action>
+	</package>
+	<!-- 通配符结束 ActionWildcard -->
 
 </struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
