@@ -15,13 +15,16 @@
 package com.struts2.front.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.struts2.front.model.User;
+import com.struts2.front.util.StringUtil;
 
 /**
  * @filename 文件名称：UserAction.java
  * @contents 内容摘要：
  */
 public class UserAction extends ActionSupport {
+	// >ActionAttrParamInput开始 使用action属性接收参数
 	private String name;
 	private int age;
 
@@ -41,6 +44,7 @@ public class UserAction extends ActionSupport {
 		this.age = age;
 	}
 
+	// 用DomainModel接收参数 用的多
 	private User user;
 
 	public User getUser() {
@@ -51,11 +55,25 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
 
+	// 用ModelDriven接收参数
+	private User ruser = new User();
+
+	public User getModel() {
+		return ruser;
+	}
+
 	public String add() {
-		// System.out.println("name:" + name);
-		// System.out.println("age:" + age);
+		if (StringUtil.isEmpty(name) || !name.equals("admin")) {
+			this.addFieldError("name", "name为空");
+			this.addFieldError("name", "name是错误的");
+			return ERROR;
+		}
+		System.out.println("name:" + name);
+		System.out.println("age:" + age);
 		// System.out.println("name:" + user.getName());
 		// System.out.println("age:" + user.getAge());
+		// System.out.println("name:" + ruser.getName());
+		// System.out.println("age:" + ruser.getAge());
 		return SUCCESS;
 	}
 

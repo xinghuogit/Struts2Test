@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
@@ -45,13 +46,58 @@
 	<a href="<%=context%>/actions/Course_delete">删除课程</a>
 	<br />通配符结束ActionWildcard
 	<br>
-	<br />ActionAttrParamInput开始 使用action属性接收参数   和ActionMethod开始
+	<br />ActionAttrParamInput开始 使用action属性接收参数 和ActionMethod开始
 	<br>使用action属性接收参数
-	<a href="user/user!add?name=a&age=8">添加用户</a>
+	<a href="user/user!add?name=a&age=8">添加用户 action属性接收参数</a>
 	<br />ActionAttrParamInput结束使用action属性接收参数
 	<br>
-	使用Domain Model接收参数<a href="user/user!add?user.name=a&user.age=8">添加用户</a>
+	<br />用DomainModel接收参数 和ActionMethod开始 使用Domain Model接收参数
+	<a href="user/user!add?user.name=添加&user.age=8">添加用户DomainModel接收参数
+		用的多</a>
+	<br />用DomainModel接收参数结束
+	<br>
+	<br />用ModelDriven接收参数 和ActionMethod开始
+	<a href="user/user!add?ruser.name=a&ruser.age=8">添加用户
+		ModelDriven接收参数 不常用</a>
+	<br />用ModelDriven接收参数结束
+	<br>
+	<br />CharacterEncoding开始 使用前不可以使用 implements ModelDriven
+	<User>
+	<form action="user/user!add" method="post">
+		姓名：<input type="text" name="name"></input> <input type="submit"
+			value="submit编码错误" />
+	</form>
+	<br />
+	CharacterEncoding结束 <br>
 
+	<br />
+	用SimpleDataValiation 和ActionMethod开始 <a
+		href="user/user!add?name=admin2">添加用户 检查数据</a> <br />
+	用SimpleDataValiation结束 <br>
 
+	<br />
+	AccessWebElements 开始 <br>
+	取得Map类型request,session,application,真实类型 HttpServletRequest,
+	HttpSession, ServletContext的引用:
+	<ol>
+		<li>前三者：依赖于容器</li>
+		<li>前三者：IOC</li> (只用这种)
+		<li>后三者：依赖于容器</li>
+		<li>后三者：IOC</li>
+	</ol>
+	<br />
+	<form name="f" action="" method="post">
+		用户名： <input type="text" name="name" /> 密码： <input type="text"
+			name="password" /> <br /> <input type="button" value="submit1"
+			onclick="javascript:document.f.action='login/login1';document.f.submit();" />
+		<input type="button" value="submit2"
+			onclick="javascript:document.f.action='login/login2';document.f.submit();" />
+		<input type="button" value="submit3"
+			onclick="javascript:document.f.action='login/login3';document.f.submit();" />
+		<input type="button" value="submit4"
+			onclick="javascript:document.f.action='login/login4';document.f.submit();" />
+	</form>
+	<br>
+	AccessWebElements结束 <br />
 </body>
 </html>

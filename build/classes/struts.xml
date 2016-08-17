@@ -19,6 +19,7 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<!-- 开发模式 -->
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
 	<!-- 介绍 -->
 	<package name="default" namespace="/" extends="struts-default">
@@ -86,6 +87,9 @@
 			<result>
 				/user_add.jsp
 			</result>
+			<result name="error">
+				/user_error.jsp
+			</result>
 		</action>
 	</package>
 	<!-- ActionMethod结束 ActionAttrParamInput -->
@@ -105,6 +109,17 @@
 		</action>
 	</package>
 	<!-- 通配符结束 ActionWildcard -->
+
+	<!-- AccessWebElements 开始 -->
+	<package name="login" extends="struts-default" namespace="/login">
+		<action name="login*"
+			class="com.struts2.front.action.accesswebelements.LoginAction{1}">
+			<result>
+				/user_login_success.jsp
+			</result>	
+		</action>
+	</package>
+	<!-- AccessWebElements 结束 -->
 
 </struts>
 
