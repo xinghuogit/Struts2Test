@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>页面未找到index</title>
+<title>页面未找到</title>
 </head>
 <body>
 	<br /> 路径问题path开始

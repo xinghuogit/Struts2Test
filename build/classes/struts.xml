@@ -22,7 +22,7 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
 	<!-- 介绍 -->
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default1" namespace="/" extends="struts-default">
 		<action name="hello">
 			<result>
 				/Hello.jsp
@@ -110,16 +110,24 @@
 	</package>
 	<!-- 通配符结束 ActionWildcard -->
 
-	<!-- AccessWebElements 开始 -->
-	<package name="login" extends="struts-default" namespace="/login">
-		<action name="login*"
-			class="com.struts2.front.action.accesswebelements.LoginAction{1}">
+	<!-- AccessWebElements 访问web元素 开始 -->
+	<!-- <package name="login" extends="struts-default" namespace="/login"> 
+		<action name="login*" class="com.struts2.front.action.accesswebelements.LoginAction{1}"> 
+		<result> /user_login_success.jsp </result> </action> </package> -->
+	<!-- AccessWebElements 访问web元素 结束 -->
+
+	<!--IncludeModules 模块包含 开始 开始之前要把 AccessWebElements访问web元素 注释 -->
+	<include file="login.xml"></include>
+	<!--IncludeModules 模块包含 结束 -->
+
+	<package name="default" extends="struts-default" namespace="/">
+		<default-action-ref name="default"></default-action-ref>
+		<action name="default">
 			<result>
-				/user_login_success.jsp
-			</result>	
+				/default.jsp
+			</result>
 		</action>
 	</package>
-	<!-- AccessWebElements 结束 -->
 
 </struts>
 
